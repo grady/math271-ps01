@@ -21,7 +21,7 @@ jobs:
           dir.create(".github", showWarnings=FALSE)
           pak::lockfile_create(c("any::sessioninfo", "any::testthat", "any::rmarkdown"), lockfile=".github/pkg.lock")
       - name: cache R packages
-        uses: actions/cache@v2
+        uses: pat-s/always-upload-cache@v2.1.5
         with: 
           path: |
             ${{ steps.install.outputs.lib-dir }}/*
