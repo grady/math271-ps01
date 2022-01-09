@@ -18,7 +18,7 @@ jobs:
           install.packages("pak", repos="https://r-lib.github.io/p/pak/devel/", lib=Sys.getenv("R_LIBS_USER"))
           .libPaths(Sys.getenv("R_LIBS_USER"))
           dir.create(".github", showWarnings=FALSE)
-          pak::lockfile_create(c("any::sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
+          pak::lockfile_create(c("sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
       - name: R package cache
         uses: actions/cache@v2
         with: 
@@ -29,6 +29,6 @@ jobs:
       - name: Install dependencies
         shell: sudo Rscript {0}
         run: |
-          pak::lockfile_install(".github/pkg.lock", lib=Sys.getenv("R_LIBS_USER"))
+          pak::lockfile_install(".github/pkg.lock")
       - uses: education/autograding@v1
         continue-on-error: true
