@@ -20,7 +20,7 @@ jobs:
           .libPaths(Sys.getenv("R_LIBS_USER"))
           dir.create(".github", showWarnings=FALSE)
           pak::lockfile_create(c("any::sessioninfo", "any::testthat", "any::rmarkdown"), lockfile=".github/pkg.lock")
-      - name: R package cache
+      - name: cache R packages
         uses: actions/cache@v2
         with: 
           path: |
@@ -32,4 +32,4 @@ jobs:
         run: |
           pak::lockfile_install(".github/pkg.lock")
       - uses: education/autograding@v1
-        continue-on-error: true
+        
