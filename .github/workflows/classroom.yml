@@ -17,9 +17,7 @@ jobs:
           install.packages("pak", repos="https://r-lib.github.io/p/pak/devel/")
           dir.create(".github", showWarnings=FALSE)
           pak::lockfile_create(c("any::sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
-          cat("::group::Show Lockfile\n")
-          writeLines(readLines(".github/pkg.lock"))
-          cat("::endgroup::\n")
+          cat("Key: ${{ steps.install.outputs.os-version }}-${{ steps.install.outputs.r-version }}-${{ hashFiles('.github/pkg.lock') }}")
       - name: Restore R package cache
         uses: actions/cache@v2
         with: 
