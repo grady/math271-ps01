@@ -8,10 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@v2
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: |
-            any::testthat
-            any::rmarkdown
+      - name: Installing pak and building lockfile
+        shell: Rscript {0}
+        run: |
+          install.packages("pak", repos="https://r-lib.github.io/p/pak/stable/")
+          dir.create(".github", showWarnings=FALSE)
+          pak::lockfile_create(c("any::sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
+          writeLines(readLines(".github/pkg.lock"))
       - uses: education/autograding@v1
