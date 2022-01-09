@@ -13,6 +13,6 @@ jobs:
         run: |
           install.packages("pak", repos="https://r-lib.github.io/p/pak/stable/")
           dir.create(".github", showWarnings=FALSE)
-          pak::lockfile_create(c("any::sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
+          pak::local_create_lockfile(c("any::sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
           writeLines(readLines(".github/pkg.lock"))
       - uses: education/autograding@v1
