@@ -11,7 +11,7 @@ jobs:
       - name: Installing pak and building lockfile
         shell: sudo Rscript {0}
         run: |
-          install.packages("pak", repos="https://r-lib.github.io/p/pak/stable/")
+          install.packages("pak", repos="https://r-lib.github.io/p/pak/devel/")
           dir.create(".github", showWarnings=FALSE)
           pak::local_create_lockfile(c("any::sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
           writeLines(readLines(".github/pkg.lock"))
