@@ -30,3 +30,4 @@ jobs:
         run: |
           pak::lockfile_install(".github/pkg.lock")
       - uses: education/autograding@v1
+        continue-on-error: true
