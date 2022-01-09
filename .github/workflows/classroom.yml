@@ -9,10 +9,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Installing pak and building lockfile
+        id: install
         shell: sudo Rscript {0}
         run: |
+          cat("::set-output name=os-version::", sessionInfo()$running, "\n", sep = "")
+          cat("::set-output name=r-version::", if (grepl("development", rv <- R.Version()$version.string)) as.character(getRversion()) else rv, "\n", sep = "")
           install.packages("pak", repos="https://r-lib.github.io/p/pak/devel/")
           dir.create(".github", showWarnings=FALSE)
           pak::lockfile_create(c("any::sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
+          cat("::group::Show Lockfile\n")
           writeLines(readLines(".github/pkg.lock"))
+          cat("::endgroup::\n")
+      - name: Restore R package cache
+        uses: actions/cache@v2
+        with: 
+          path: |
+            /usr/local/lib/R/site-library/*
+            !/usr/local/lib/R/site-library/pak
+          key: ${{ steps.install.outputs.os-version }}-${{ steps.install.outputs.r-version }}-${{ hashFiles('.github/pkg.lock') }}
+      - name: Install dependencies
+        shell: sudo Rscript {0}
+        run: |
+          pak::lockfile_install(".github/pgk.lock")
       - uses: education/autograding@v1
