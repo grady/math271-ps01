@@ -1,0 +1,44 @@
+---
+title: "Getting to Know RStudio"
+author: "Grady"
+date: "1/8/2022"
+output: html_document
+---
+
+## This is a header
+
+Text goes here
+
+
+## This is a second header
+
+Below this is a code chunk.
+
+```{r prelim}
+x <- 6
+favorite_movie <- "Star_Wars"
+v <- c(2, 4, 6)
+v * 3
+```
+
+## Exercise 1
+
+```{r ex1}
+y <- 7
+z <- x*y
+```
+
+
+## Exercise 3
+
+```{r ex3}
+a <- 6+3
+```
+
+
+## Exercise 9
+
+```{r ex9}
+music <- c("bluegrass", "funk", "folk")
+```
+
