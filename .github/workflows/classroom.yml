@@ -19,14 +19,14 @@ jobs:
           install.packages("pak", repos="https://r-lib.github.io/p/pak/devel/", lib=Sys.getenv("R_LIBS_USER"))
           .libPaths(Sys.getenv("R_LIBS_USER"))
           dir.create(".github", showWarnings=FALSE)
-          pak::lockfile_create(c("sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
+          pak::lockfile_create(c("any::sessioninfo", "any::testthat", "any::rmarkdown"), lockfile=".github/pkg.lock")
       - name: R package cache
         uses: actions/cache@v2
         with: 
           path: |
             ${{ steps.install.outputs.lib-dir }}/*
             !${{ steps.install.outputs.lib-dir }}/pak
-          key: ${{ steps.install.outputs.os-version }}-${{ steps.install.outputs.r-version }}-${{ hashFiles('.github/pkg.lock') }}-2
+          key: ${{ steps.install.outputs.os-version }}-${{ steps.install.outputs.r-version }}-${{ hashFiles('.github/pkg.lock') }}-4
       - name: Install dependencies
         shell: Rscript {0}
         run: |
