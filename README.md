@@ -110,3 +110,8 @@ RStudio organizes work into "Projects", which are mostly just folders in the fil
 ![](figures/repository-url.png)
 
 You should now be set up with a new R project which is copied from the template on github. Everything should be configured for you to eventually submit your work back to github when you are finished.
+
+----
+
+This repository is derived from the problem sets and labs for ModernDive by Jenny Smetzer, William Hopper, Albert Y. Kim, and Chester Ismay available at https://moderndive.com/labs
+
