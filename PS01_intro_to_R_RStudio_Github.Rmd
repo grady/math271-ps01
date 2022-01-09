@@ -115,6 +115,9 @@ To stage the changes you made, select the checkboxes to the left of the new Rmd 
 
 Once you have staged the two files, select "Commit". A new window will popup where you can have a final review of the changes. Write a short _commit message_ summarizing what you did, and press commit.
 
+![](figures/git-commit.png)
+In the figure above, I am set up to commit my new solution Rmd and html files to git. There are also some changes made to the instructions html document, but by leaving the staging box unchecked I am choosing not to commit these changes at this time.
+
 It is a good idea to make commits reasonably often, whenever you finish working on a particular issue or exercise. This will take some practice and effort to get the hang of, but it will pay off in the long run in recovering from mistakes and preventing lost work.
 
 ## Submitting Assignments (Pushing to Github)
@@ -123,7 +126,7 @@ The second goal of the Git and Github systems is to allow multiple copies of the
 
 If you are working on a project cloned from another git repository, then you will eventually want to "push" your changes back and update the original source with your edits. This will be the mechanism by which you submit assignments in this course. 
 
-As long as you don't try anything fancy with git, this should be a simple matter of using the "Push" button in the Git pane. If successful, any changes you pushed back should now appear on your github repository for the project.
+As long as you don't try anything fancy with git, this should be a simple matter of using the "Push" button in the Git pane. (Number 4 in the previous figure.) If successful, any changes you pushed back should now appear on your github repository for the project.
 
 
 # Data types- a brief intro
