@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "testthat",
-      "setup": "Rscript autograder-setup.R",
+      "setup": "",
       "run": "Rscript autograder.R",
       "input": "",
       "output": "",
