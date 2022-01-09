@@ -20,17 +20,16 @@ jobs:
           .libPaths(Sys.getenv("R_LIBS_USER"))
           dir.create(".github", showWarnings=FALSE)
           pak::lockfile_create(c("any::sessioninfo", "testthat", "rmarkdown"), lockfile=".github/pkg.lock")
-      - name: Restore R package cache
+      - name: R package cache
         uses: actions/cache@v2
         with: 
           path: |
             ${{ steps.install.outputs.lib-dir }}/*
             !${{ steps.install.outputs.lib-dir }}/pak
-          key: ${{ steps.install.outputs.os-version }}-${{ steps.install.outputs.r-version }}-${{ hashFiles('.github/pkg.lock') }}
+          key: ${{ steps.install.outputs.os-version }}-${{ steps.install.outputs.r-version }}-${{ hashFiles('.github/pkg.lock') }}-1
       - name: Install dependencies
         shell: sudo Rscript {0}
         run: |
-          cat(.libPaths())
           pak::lockfile_install(".github/pkg.lock")
       - uses: education/autograding@v1
         continue-on-error: true
