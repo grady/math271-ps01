@@ -8,5 +8,6 @@
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
+          - run: sudo apt-get install r-cran-testthat
           - run: sudo Rscript autograder-setup.R
           - uses: education/autograding@v1
