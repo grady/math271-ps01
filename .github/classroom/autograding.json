@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "testthat",
+      "setup": "Rscript autograder-setup.R",
+      "run": "Rscript autograder.R",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}
