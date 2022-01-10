@@ -1,1 +1,1 @@
-testthat::test_file("tests.R", reporter=MultiReporter$new(list(CompactProgressReporter$new(), FailReporter$new())))
+testthat::test_file("tests.R", reporter=c("compactProgress", "fail"))
