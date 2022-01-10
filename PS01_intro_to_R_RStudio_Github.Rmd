@@ -17,6 +17,8 @@ library(knitr)
 
 # Using R Markdown files
 
+Before continuing with these instructions, make sure you have completed the setup in the README.md file. These instructions assume that you are working in your cloned copy of the RStudio project for this problem set.
+
 ## Opening a new file
 
 When you want to write a paper, you have to open a Word document to type your ideas into, and save your work in. In R we use a document type called an R Markdown document. R Markdown documents are useful for both running code, and annotating the code with comments. The document can be saved, so you can refer back to your code later, and can be used to create other document types (html, word, pdf, or slides) for presenting the results of your analyses. R Markdown provides a way to generate clear and reproducible statistical analyses. 
