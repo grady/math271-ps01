@@ -7,7 +7,7 @@ We will also introduce Git and Github, tools for managing and tracking changes i
 
 # Opening RStudio Server
 
-Open the UH Hilo Rstudio server by visiting [data.uhh.hawaii.edu](https://data.uhh.hawaii.edu).
+Open the UH Hilo Rstudio server by using the link given in class, or the button in Laulima.
 
 This system is managed by Prof. Weyenberg and runs on some elderly math department hardware. It could fail at any time, and there are no backups. Use this system at your own risk and be sure to keep regular backups.
 
