@@ -237,6 +237,18 @@ plot(faithful)
 ```
 
 
+# Testing your code
+
+When appropriate, there will be tools available for automated testing of your code. You can run these tests yourself by opening the `tests.R` file and using the "Run Tests" button in the editor pane.
+
+![](figures/run-tests.png)
+
+The test results will appear in the Tests pane (bottom left). Make sure to toggle between Output and Issues.
+
+![](figures/test-output.png)
+
+If everything is as expected, all tests should pass.
+
 # Turning in your work
 
 Once you have finished your submission do the following:
