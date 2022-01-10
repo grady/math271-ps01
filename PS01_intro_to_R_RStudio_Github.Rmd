@@ -116,7 +116,7 @@ To stage the changes you made, select the checkboxes to the left of the new Rmd 
 Once you have staged the two files, select "Commit". A new window will popup where you can have a final review of the changes. Write a short _commit message_ summarizing what you did, and press commit.
 
 ![](figures/git-commit.png)
-In the figure above, I am set up to commit my new solution Rmd and html files to git. There are also some changes made to the instructions html document, but by leaving the staging box unchecked I am choosing not to commit these changes at this time.
+In the figure above, I am set up to commit my new solution Rmd and html files to git. There are also some changes made to the instructions html document, but by leaving the staging box unchecked I am choosing not to commit these changes to git at this time.
 
 It is a good idea to make commits reasonably often, whenever you finish working on a particular issue or exercise. This will take some practice and effort to get the hang of, but it will pay off in the long run in recovering from mistakes and preventing lost work.
 
@@ -154,7 +154,7 @@ v * 3
 ```
 
 
-# Problems
+# Exercises
 
 To complete this problem set you will next run through some Exercises, addressing each question and adding it to your `PS01_solution.Rmd` file. Please make a **header** for each of these Exercises. If you need to answer an Exercise with text, type the text **below** the header, on the next line, in the white part, and if you need to answer an Exercise with some code, insert a code chunk **below** the header, and put the code in the greyed out box. 
 
