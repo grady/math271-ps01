@@ -3,7 +3,7 @@
     {
       "name": "testthat",
       "setup": "",
-      "run": "Rscript autograder.R",
+      "run": "Rscript .github/autograder.R",
       "input": "",
       "output": "",
       "comparison": "included",
