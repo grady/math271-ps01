@@ -27,6 +27,8 @@ jobs:
             ${{ steps.install.outputs.lib-dir }}/*
             !${{ steps.install.outputs.lib-dir }}/pak
           key: ${{ steps.install.outputs.os-version }}-${{ steps.install.outputs.r-version }}-${{ hashFiles('.github/pkg.lock') }}-4
+          restore-keys: |
+            ${{ steps.install.outputs.os-version }}-${{ steps.install.outputs.r-version }}-
       - name: Install dependencies
         shell: Rscript {0}
         run: |
