@@ -92,6 +92,16 @@ Enter passphrase for key '/home/gradysw/.ssh/id_rsa':
 Hi grady! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
+### Setup git user info
+
+In the terminal set up some user information for github
+
+```
+git config --global user.email "your@email.fake"
+git config --global user.name "Your Name"
+```
+
+
 ## Cloning an assignment project
 
 RStudio organizes work into "Projects", which are mostly just folders in the file system plus a few settings. You can create projects from scratch, but many of the assignments in this course will be "cloned" from a template on Github. 
