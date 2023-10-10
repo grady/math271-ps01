@@ -42,65 +42,35 @@ A quick way to get help on a R command is to enter a `?` and then a command name
 
 # Github Setup
 
-This setup needs to be done once per RStudio installation. The commands here are entered into the __Terminal__, which is used to interact with the computer which is running R, instead of R itself. We can use the Terminal to get the computer to run programs outside of R, which we need to do to setup the connection with Github.
+First, if you do not already have an account with Github.com, you should [create one](https://github.com/join){target="_blank"}. If you aready have a Github account, then you should [log in](https://github.com/login){target="_blank"}. If you are using a public or lab computer, it is best if you do this, and other steps on Github in a Private/Incognito browser tab.
 
-- Go to the Terminal pane, (`Alt-Shift-M`), enter the command `ssh-keygen`. Press enter without typing anything when asked for a file name, and then enter a password twice. This password doesn't really need to be difficult, but it is not good to leave it blank. 
+The next few setup steps need to be done once per RStudio installation. The following commands should be entered into the R console
 
+Setup your name and email address in git. Copy and paste the command below, entering your own details into the appropriate strings.
 ```
-gradysw@gauss:~$ ssh-keygen
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/gradysw/.ssh/id_rsa):
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /home/gradysw/.ssh/id_rsa.
-Your public key has been saved in /home/gradysw/.ssh/id_rsa.pub.
-The key fingerprint is:
-2048 SHA256:ue5ceVeXsn5GMqZBwYjc3WFGjyT/u/ay7las5OlyTDw gradysw@gauss (RSA)
-+---[RSA 2048]----+
-|      . o +.o*.  |
-|       o o +*.o  |
-|            .o . |
-|         . .  . .|
-|        S .  o +o|
-|         . o +Eo=|
-|        . o =*=* |
-|       o . oo.O+.|
-|       .+    OO+o|
-+----[SHA256]-----+
+usethis::use_git_config(user.name = "Your Name", user.email = "your.email@example.com")
 ```
 
-- The terminal should have printed out a line that says `Your public key has been saved in [FILENAME]`.
-
+Next we generate an access token on Github that Rstudio will use to authenticate itself on your behalf. Either enter the R command in the console below, or visit [this link](https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=Rstudio){target="_blank"}.
 ```
-Your public key has been saved in /home/gradysw/.ssh/id_rsa.pub.
-```
-
-- If you used the default settings, then you should now enter the command `cat ~/.ssh/id_rsa.pub` into the terminal. (Otherwise, enter the command `cat FILENAME`, where you copy and paste the public key filename (without the last period) from the previous step.) It should spit out a bunch of nonsense that begins with "ssh-" and ends with something that looks sort of like an email address. You will need to copy and paste that bunch of output into Github in an upcoming step. (Don't actually put the key below into github, or I will have full access to your account.)
-
-```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9gubKifTEg89rDvpdmb/l4eLaX5au5vgy0fyrIvR7M5W/v7LZLWPvZ3D3JkusTTlQvKD4JOPu7XJVH4Fu7P4X28bxJ22An2m8yG20zXfMg9jCx3dDDEpeh9XqNGaTxKnQu/xx71VJAamIwB2yuofV9VBZTLyZvb+BHkueehCyzpxt27oDi3XCkJaWw4qx6V2SE0hePSHB91EFlCyWtVYk3ClT69V9M380ABgh5Fiz72yiht2aBbCz4DTQ++IzzyLB9hlzDvXFSARwRDFzBOiL0UjAa7JV+1l5wDZi2N1eTk/Vx3XEYXr89ss3v3bN/YbrRBa4C8nYxRs16sQtuM9T gradysw@gauss
-```
-- Create/log in to your Github account. (You may also want to [apply for the student upgrade](https://education.github.com/discount_requests/student_application) to Github pro, but this is optional.)
-- In Github, go to account Settings (top right menu), and select the ["SSH and GPG keys"](https://github.com/settings/keys) area. Press the green ["New SSH Key"](https://github.com/settings/ssh/new) button near the top right, and add the public key you just generated. Use something like "UHH RStudio" for the title and paste the public key string into the "key" box. The [Github help](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) pages have more detailed instructions.
-- Test that everything works by going back to the RStudio terminal and trying `ssh -T git@github.com`. You should 
-get a message about successfully authenticating.
-
-```
-gradysw@gauss:~$ ssh -T git@github.com
-Warning: Permanently added the RSA host key for IP address '140.82.114.3' to the list of known hosts.
-Enter passphrase for key '/home/gradysw/.ssh/id_rsa': 
-Hi grady! You've successfully authenticated, but GitHub does not provide shell access.
+usethis::create_github_token(description="Rstudio") 
 ```
 
-### Setup git user info
+On the access token creation page, you should change the expiration date from 30 days to a custom date at the end of the semester. Leave the rest of the settings as they are (you can modify the Note if you want), scroll to the bottom of the page and press the green _Generate Token_ button.
 
-In the terminal set up some user information for github
+>   ![](figures/github_new_pat.png)
 
+One the next page, copy the secret access token in the green box to the clipboard by clicking on the double-box icon to the right of the secret text. Don't close this page until you have succesfully activated this code with Rstudio.
+
+> ![](figures/github_copy_pat.png)
+
+Now store the secret token in Rstudio by entering the following command into the R console, and then paste your PAT secret from the previous step into the prompt box that opens in RStudio.
+
+```r
+credentials::set_github_pat()
 ```
-git config --global user.email "your@email.fake"
-git config --global user.name "Your Name"
-```
 
+If everything works you should get a message confirming that the access token has been set up succesfully.
 
 ## Cloning an assignment project
 
