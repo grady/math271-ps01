@@ -4,9 +4,11 @@ test_that("<5>Solution file exists and knits",{
 })
 
 test_that("<1>Preliminaries",{
-  expect_equal(x, 6)
-  expect_vector(favorite_movie, character(), 1)
-  expect_equal(v, c(2, 4, 6))
+  expect_no_error({
+    expect_equal(x, 6)
+    expect_vector(favorite_movie, character(), 1)
+    expect_equal(v, c(2, 4, 6))
+  })
 })
 
 test_that("<1>Exercise 1", {
