@@ -4,22 +4,20 @@ test_that("<5>Solution file exists and knits",{
 })
 
 test_that("<1>Preliminaries",{
-  expect_no_error({
-    expect_equal(x, 6)
-    expect_vector(favorite_movie, character(), 1)
-    expect_equal(v, c(2, 4, 6))
-  })
+    expect_equal(expect_error(x, NA), 6)
+    expect_vector(expect_error(favorite_movie, NA), character(), 1)
+    expect_equal(expect_error(v,NA), c(2, 4, 6))
 })
 
 test_that("<1>Exercise 1", {
-  expect_equal(y, 7)
-  expect_equal(z, x * y)
+  expect_equal(expect_error(y, NA), 7)
+  expect_equal(expect_error(z, NA), x * y)
 })
 
 test_that("<1>Exercise 3", {
-  expect_equal(a, 9)
+  expect_equal(expect_error(a,NA), 9)
 })
 
 test_that("<1>Exercise 9", {
-  expect_vector(music, character(), 3)
+  expect_vector(expect_error(music, NA), character(), 3)
 })
