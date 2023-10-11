@@ -10,12 +10,14 @@ test_that("<1>Preliminaries",{
 })
 
 test_that("<1>Exercise 1", {
-  expect_error(expect_equal(y, 7), NA)
-  expect_error(expect_equal(z, x * y), NA)
+  expect_no_error({
+    expect_equal(y, 7)
+    expect_equal(z, x * y)
+  })
 })
 
 test_that("<1>Exercise 3", {
-  expect_equal(expect_error(a,NA), 9)
+  expect_no_error(expect_equal(a, 9))
 })
 
 test_that("<1>Exercise 9", {
