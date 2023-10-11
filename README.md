@@ -17,8 +17,6 @@ You can install and manage the software on your own computer. You will need to i
 
 A third option is to use https://rstudio.cloud/. This is a commercially hosted version of the RStudio server software, with a free tier of account. This is hosted in the cloud and is probably the easiest and safest option. However, the free account has a limit of 25 hours per month on it, which might not be enough. You can upgrade the free account to 75 hours per month for a $5/mo charge.
 
-
-
 # The RStudio Interface
 
 Whichever method you choose, once everything is set up/logged in you should see something like the image below.
@@ -46,14 +44,14 @@ First, if you do not already have an account with Github.com, you should [create
 
 The next few setup steps need to be done once per RStudio installation. The following commands should be entered into the R console
 
-Setup your name and email address in git. Copy and paste the command below, entering your own details into the appropriate strings.
-```
-usethis::use_git_config(user.name = "Your Name", user.email = "your.email@example.com")
+Setup some basic information about yourself, including your name (name with spaces, not a username) and email address that you used to register for Github. Copy and paste the command below, entering your own details into the appropriate strings. This command should run silently, with no output.
+```r
+usethis::use_git_config(user.name = "Your Name", user.email = "your.email@example.com", credential.helper="store")
 ```
 
 Next we generate an access token on Github that Rstudio will use to authenticate itself on your behalf. Either enter the R command in the console below, or visit [this link](https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=Rstudio){target="_blank"}.
-```
-usethis::create_github_token(description="Rstudio") 
+```r
+usethis::create_github_token(description="Rstudio"); credentials::set_github_pat() 
 ```
 
 On the access token creation page, you should change the expiration date from 30 days to a custom date at the end of the semester. Leave the rest of the settings as they are (you can modify the Note if you want), scroll to the bottom of the page and press the green _Generate Token_ button.
@@ -64,20 +62,14 @@ One the next page, copy the secret access token in the green box to the clipboar
 
 > ![](figures/github_copy_pat.png)
 
-Now store the secret token in Rstudio by entering the following command into the R console, and then paste your PAT secret from the previous step into the prompt box that opens in RStudio.
-
-```r
-credentials::set_github_pat()
-```
-
-If everything works you should get a message confirming that the access token has been set up succesfully.
+Now store the secret token in Rstudio by pasting it into the console area of RStudio, which should have a prompt waiting to accept it, and press Enter/Return.
 
 ## Cloning an assignment project
 
 RStudio organizes work into "Projects", which are mostly just folders in the file system plus a few settings. You can create projects from scratch, but many of the assignments in this course will be "cloned" from a template on Github. 
 
 - Find the link to a Github Classroom Assignment on Laulima. The first time you use one of these links you will need to pair your github account account to a name in the class roster. After that everything should be automatic. 
-- Visit your new assignment repository, go to the green "Code" button and copy the clone URL by clicking the copy button next to it.
+- Visit your new assignment repository, which should have opened after using the assignment link, go to the green "Code" button and copy the clone URL by clicking the copy button next to it. (NOTE: Need to change these images to use HTTPS)
 
 ![](figures/github-clone-url.png)
 
@@ -85,12 +77,13 @@ RStudio organizes work into "Projects", which are mostly just folders in the fil
 
 ![](figures/new-project.png)
 
-- Select "Version Control", then "Git". Paste the Clone URL from the last step into the Repository URL area and click "Create Project".
+- Select "Version Control", then "Git". Paste the Clone URL from the last step into the Repository URL area and click "Create Project". (NOTE NEED IMAGE FOR VERSION CONTROL PAGE, AND SECOND PAGE ALSO, Make sure directory field is automatically filled by moving cursor in the url field after pasting)
 
 ![](figures/repository-url.png)
 
 You should now be set up with a new R project which is copied from the template on github. Everything should be configured for you to eventually submit your work back to github when you are finished.
 
+Now you have a copy of the assignment. Open the `PS01_intro_to_R_RStudio.Rmd` file in the **Files** pane in the lower right to continue the tutorial.
 ----
 
 This repository is derived from the problem sets and labs for ModernDive by Jenny Smetzer, William Hopper, Albert Y. Kim, and Chester Ismay available at https://moderndive.com/labs

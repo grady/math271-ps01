@@ -19,6 +19,8 @@ library(knitr)
 
 Before continuing with these instructions, make sure you have completed the setup in the README.md file. These instructions assume that you are working in your cloned copy of the RStudio project for this problem set.
 
+Now press the the Knit button at the top of this file, and the instructions should open in the **Viewer** tab. You can continue reading this instructions document there.
+
 ## Opening a new file
 
 When you want to write a paper, you have to open a Word document to type your ideas into, and save your work in. In R we use a document type called an R Markdown document. R Markdown documents are useful for both running code, and annotating the code with comments. The document can be saved, so you can refer back to your code later, and can be used to create other document types (html, word, pdf, or slides) for presenting the results of your analyses. R Markdown provides a way to generate clear and reproducible statistical analyses. 
@@ -39,11 +41,11 @@ Using the image below as a guide
 
 - First, change the title of the lab at the top to "Getting to know RStudio". Be sure to keep the quotation marks. 
 - Second, add an author line, following the example below. You need quotation marks!
-- Third, delete everything in the document from line 6 downwards.
-- Fourth, add headers and text, **exactly** following the example below. 
+- Third, delete everything in the document from the line `## R Markdown` down.
+- Next add at least one header (lines beginning with `##`, the space afterwards is important) and some text, similar to the image below. 
 - Finally, insert what is called a "code chunk." To do this you click on the **insert** button near the top center of the screen, then choose R. The greyed out box that shows up is where you type code. (`Ctrl-Alt-I` inserts a code chunk below the cursor.)
 
-Your final result should look like this:
+Your final result should look something like this: (update this image?)
 
 ![](figures/make.changes.png)
 
@@ -52,14 +54,14 @@ Your final result should look like this:
 You will complete your lab work in an R Markdown file like this each week, so it is important to learn how to save these files. 
 
 -  Click File > Save As... (or the 💾 icon, or `Ctrl-S`)
--  Name the file: `PS01_solution` (use this exact filename)
--  Click save
+-  Name the file: `solution` (use this exact file name, including capitalization)
+-  Click the Save button. (or `Enter`)
 
-This is now saved, and should appear as `PS01_solution.Rmd` in the Files pane in the lower right. 
+This is now saved, and should appear as `solution.Rmd` in the Files pane in the lower right. 
 
 ## Knitting a file
 
-Click the Knit button (`Ctrl-Shift-K`) at the top left side of the screen to "knit" the file, or in other words, produce an output document. An `.html` file will be generated. It is automatically saved in the same folder that your R Markdown file was saved in. 
+Click the Knit button (`Ctrl-Shift-K`) at the top left side of the screen to _"knit"_ the file, or in other words, produce an output document. An `.html` file will be generated, and should appear in the **Files** pane. It is automatically saved in the same folder that your R Markdown file was saved in. 
 
 ::: {.license}
 Note that there is now a R Markdown file (`.Rmd`) and an html file (`.html`) in the folder. There should also be a popup window showing the output `.html` file.
@@ -88,7 +90,7 @@ The arrow `<-` is called an **ASSIGNMENT OPERATOR**, and tells R to save an obje
 
 To actually **RUN** this command in your console, you have a few options:
 
-- click on the green triangle in the code chunk
+- click on the green triangle in the code chunk (▶️ icon)
 - put the cursor on the line with the code and hit `Control-Enter` on a PC or `Command-Return` on a Mac
 
 Think of "running" code in your console as telling R "do this".
@@ -113,12 +115,12 @@ The basic Git workflow is this:
 - "Commit" the staged changes to the local git repository.
 - You can "Revert" any changes you do not like to reset the file to it's old state.
 
-To stage the changes you made, select the checkboxes to the left of the new Rmd and html output files in the Git pane of RStudio. (Shortcut for the Git pane is `Ctrl-F1`)
+To stage the changes you made, select the check box to the left of the new Rmd file in the Git pane of RStudio. (Tab of top-right pane, shortcut for the Git pane is `Ctrl-F1`)
 
-Once you have staged the two files, select "Commit". A new window will popup where you can have a final review of the changes. Write a short _commit message_ summarizing what you did, and press commit.
+Once you have staged the solution file, select "Commit". A new window will popup where you can have a final review of the changes. Write a short _commit message_ summarizing what you did, and press commit. (UPDATE IMAGE BELOW)
 
 ![](figures/git-commit.png)
-In the figure above, I am set up to commit my new solution Rmd and html files to git. There are also some changes made to the instructions html document, but by leaving the staging box unchecked I am choosing not to commit these changes to git at this time.
+In the figure above, I am set up to commit my new solution Rmd file to git. There are also some changes made to the instructions html document, but by leaving the staging box unchecked I am choosing not to commit these changes to git at this time.
 
 It is a good idea to make commits reasonably often, whenever you finish working on a particular issue or exercise. This will take some practice and effort to get the hang of, but it will pay off in the long run in recovering from mistakes and preventing lost work.
 
@@ -129,6 +131,8 @@ The second goal of the Git and Github systems is to allow multiple copies of the
 If you are working on a project cloned from another git repository, then you will eventually want to "push" your changes back and update the original source with your edits. This will be the mechanism by which you submit assignments in this course. 
 
 As long as you don't try anything fancy with git, this should be a simple matter of using the "Push" button in the Git pane. (Number 4 in the previous figure.) If successful, any changes you pushed back should now appear on your github repository for the project.
+
+(add something that all changes must be committed before pushing them)
 
 
 # Data types- a brief intro
