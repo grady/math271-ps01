@@ -40,3 +40,5 @@ vignettes/*.pdf
 
 README.html
 *.html
+solution.md
+figure/
