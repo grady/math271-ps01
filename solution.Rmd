@@ -1,0 +1,72 @@
+---
+title: "Solution"
+author: "Grady Weyenber"
+date: "Solution Key"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+x <- 6
+favorite_movie <- "Star_Wars"
+v <- c(2, 4, 6)
+```
+
+
+## Exercise 1
+
+```{r exercise1}
+y <- 7
+z <- x *y
+```
+ 
+## Exercise 2
+
+Text answer.
+
+## Exercise 3
+
+
+```{r}
+a <- 6 +3
+```
+
+Text answers here.
+
+## Exercise 4
+
+
+Text answer
+
+## Exercise 5
+
+Text answer.
+
+## Exercise 6
+
+Text answer.
+
+## Exercise 7
+
+Text answer.
+
+## Exercise 8
+
+Text answer.
+
+## Exercise 9
+
+```{r}
+music <- c("bluegrass", "funk", "folk")
+```
+
+## Exercise 10
+
+Text answer using some special formatting with markdown.
+
+## Exercise 11
+
+Code chunk that creates a plot.
